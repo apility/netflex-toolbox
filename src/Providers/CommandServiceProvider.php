@@ -3,6 +3,7 @@
 namespace Netflex\Toolbox\Providers;
 
 use Illuminate\Foundation\Providers\ArtisanServiceProvider;
+use Netflex\Toolbox\Commands\Index\ForceIndexCustomer;
 use Netflex\Toolbox\Commands\Orders\PruneOrders;
 
 class CommandServiceProvider extends ArtisanServiceProvider
@@ -17,6 +18,7 @@ class CommandServiceProvider extends ArtisanServiceProvider
         parent::register();
         $this->commands([
             PruneOrders::class,
+            ForceIndexCustomer::class,
         ]);
 
     }

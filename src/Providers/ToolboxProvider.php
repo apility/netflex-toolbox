@@ -2,7 +2,6 @@
 
 namespace Netflex\Toolbox\Providers;
 
-use Illuminate\Support\Facades\Artisan;
 use Netflex\Toolbox\Middleware\AddTrailingSlash;
 use Netflex\Toolbox\Middleware\RemoveTrailingSlash;
 
@@ -11,13 +10,15 @@ class ToolboxProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
+
+
         $this->registerTrailingSlashHelpers();
-        $this->registerOrderCommands();
+
     }
 
     public function boot()
     {
-
+        $this->bootOrderCommandConfigs();
     }
 
 
@@ -27,8 +28,15 @@ class ToolboxProvider extends \Illuminate\Support\ServiceProvider
         app()->bind('remove-slash', RemoveTrailingSlash::class);
     }
 
-    private function registerOrderCommands()
+    private function bootOrderCommandConfigs()
     {
+        $this->mergeConfigFrom(__DIR__ . "/../../config/indexers.php", "indexers");
+
+        $this->publishes([
+            __DIR__ . "/../../config/indexers.php" => $this->app->configPath('indexers.php'),
+        ], 'toolbox-config',
+        );
+
     }
 
 }

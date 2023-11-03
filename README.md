@@ -20,3 +20,4 @@ We also have a middleware that will redirect to routes without a trailing slash,
 is called `remove-slash`
 
 
+## Commands
