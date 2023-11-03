@@ -1,0 +1,25 @@
+{
+  "name": "netflex-sdk/toolbox",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Netflex\\Toolbox\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Tommy Stigen Olsen",
+      "email": "tommysolsen@gmail.com"
+    }
+  ],
+  "require": {
+    "netflex/framework": "^4"
+  },
+  "extra": {
+    "laravel":{
+      "providers": [
+        "Netflex\\Toolbox\\Providers\\ToolboxProvider"
+      ]
+    }
+  }
+}
