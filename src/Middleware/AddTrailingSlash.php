@@ -11,7 +11,7 @@ class AddTrailingSlash
 
     public function handle(Request $request, \Closure $next, string $statusCode = '302') {
 
-        if($request->method() === 'GET' && substr($_SERVER['PATH_INFO'], -1) !== '/') {
+        if($request->method() === 'GET' && isset($_SERVER['PATH_INFO']) && substr($_SERVER['PATH_INFO'], -1) !== '/') {
             return redirect()->to($this->fullAppendedUrl("/"), (int)$statusCode);
         }
 
