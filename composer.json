@@ -1,5 +1,5 @@
 {
-  "name": "netflex-sdk/toolbox",
+  "name": "netflex/toolbox",
   "type": "library",
   "autoload": {
     "psr-4": {
@@ -18,7 +18,8 @@
   "extra": {
     "laravel":{
       "providers": [
-        "Netflex\\Toolbox\\Providers\\ToolboxProvider"
+        "Netflex\\Toolbox\\Providers\\ToolboxProvider",
+        "Netflex\\Toolbox\\Providers\\CommandServiceProvider"
       ]
     }
   }
