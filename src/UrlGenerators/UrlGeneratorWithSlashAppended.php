@@ -1,10 +1,8 @@
 <?php
 
-namespace Netflex\Toolbox;
+namespace Netflex\Toolbox\UrlGenerators;
 
 use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
-use Illuminate\Http\Request;
-use Illuminate\Routing\RouteCollectionInterface;
 use Illuminate\Routing\UrlGenerator;
 
 class UrlGeneratorWithSlashAppended extends UrlGenerator
