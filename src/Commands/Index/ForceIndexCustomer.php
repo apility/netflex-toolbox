@@ -6,9 +6,12 @@ use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Pipeline\Pipeline;
 use Netflex\API\Facades\API;
+use Netflex\Toolbox\Traits\IndexHelpers;
 
 class ForceIndexCustomer extends Command
 {
+    use IndexHelpers;
+
     /**
      * The name and signature of the console command.
      *
@@ -87,17 +90,13 @@ class ForceIndexCustomer extends Command
             ->through(config('indexers.customer', []))
             ->thenReturn();
 
-        foreach ($newData as $key => $value) {
-            if ($customerData->{$key} === $value) {
-                unset($newData->{$key});
-            }
-        }
-
+        $this->removeUnchangedFields($newData, $customerData);
 
         if ($this->option('dry-run')) {
             dump($newData);
         } else {
-            API::put("relations/customers/customer/$id", $newData);
+            if (sizeof(array_keys((array)$newData)) > 0)
+                API::put("relations/customers/customer/$id", $newData);
         }
 
         $data = API::put("elasticsearch/customer/$id");
@@ -108,10 +107,6 @@ class ForceIndexCustomer extends Command
     }
 
 
-    private function dumpIf($value)
-    {
-        if ($value) {
-            dump($value);
-        }
-    }
+
+
 }

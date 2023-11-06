@@ -21,3 +21,7 @@ is called `remove-slash`
 
 
 ## Commands
+We've added a fair few functions of often repeated tasks when working with Netflex sites.
+All functions are prefixed with `tb:`
+
+## Simple way f

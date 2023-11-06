@@ -2,8 +2,8 @@
 
 namespace Netflex\Toolbox\Commands\Orders;
 
-use App\Models\Order;
 use Illuminate\Console\Command;
+use Netflex\Commerce\Order;
 use Netflex\Toolbox\Events\Orders\OrderManuallyPruned;
 
 class PruneOrders extends Command
@@ -13,7 +13,7 @@ class PruneOrders extends Command
      *
      * @var string
      */
-    protected $signature = 'tb:orders:prune {--status=} {{--all-statuses}} {{--email-suffix=}} {{--data=*}} {{--limit=10000}}';
+    protected $signature = 'tb:orders:prune {--status=} {{--email-suffix=}} {{--data=*}} {{--limit=10000}}';
 
     /**
      * The console command description.

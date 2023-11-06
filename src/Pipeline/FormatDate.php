@@ -46,7 +46,12 @@ class FormatDate
             $value = $entry->{$key};
 
             if ($value) {
-                $time = CarbonImmutable::parse($value, $this->timezone)->setTimezone($this->timezone);
+                $time = CarbonImmutable::parse($value, $this->timezone);
+
+                if ($this->timezone) {
+                    $time = $time->setTimezone($this->timezone);
+                }
+
                 if ($time) {
                     $entry->{$key} = $time->format($this->getTimeFormat());
                 }
