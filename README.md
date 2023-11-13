@@ -1,5 +1,7 @@
 # Netflex Toolbox
 
+<a href="https://apility.github.io/netflex-toolbox">Documentation</a>
+
 This toolbox is just collection of nice to haves that have been created during development of
 sites. Quickly share or reuse your helpers.
 
@@ -23,5 +25,3 @@ is called `remove-slash`
 ## Commands
 We've added a fair few functions of often repeated tasks when working with Netflex sites.
 All functions are prefixed with `tb:`
-
-## Simple way f
