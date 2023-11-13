@@ -3,9 +3,11 @@
 namespace Netflex\Toolbox\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Netflex\Toolbox\Middleware\AddTrailingSlash;
 use Netflex\Toolbox\Middleware\RemoveTrailingSlash;
+use Netflex\Toolbox\Validations\RecaptchaV2;
 
 class ToolboxProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -50,6 +52,8 @@ class ToolboxProvider extends \Illuminate\Support\ServiceProvider
     {
         Blade::componentNamespace('Netflex\\Toolbox\\Views\\Components', 'toolbox');
         View::addNamespace('toolbox', __DIR__ . "/../../views");
+        Validator::extend('recaptcha-v2', RecaptchaV2::class);
+
         $this->mergeConfigFrom(__DIR__ . "/../../config/recaptcha-v2.php", "recaptcha-v2");
 
         $this->publishes(

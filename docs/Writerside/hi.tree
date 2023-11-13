@@ -3,16 +3,17 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="hi"
-                 name="Netflex Toolbox"
-                 start-page="Default-topic.md">
+                  name="Netflex Toolbox"
+                  start-page="Default-topic.md">
 
     <toc-element topic="Default-topic.md"/>
-    <toc-element topic="trailing-slashes.md" />
-    <toc-element id="I18n" topic="i18n.md" />
+    <toc-element topic="trailing-slashes.md"/>
+    <toc-element id="I18n" topic="i18n.md"/>
+    <toc-element id="Recaptcha" topic="recaptcha.md"/>
 
 
     <toc-element id="commands" topic="commands.md">
-        <toc-element id="orders" topic="orders.md" />
-        <toc-element id="index" topic="indexing.md" />
+        <toc-element id="orders" topic="orders.md"/>
+        <toc-element id="index" topic="indexing.md"/>
     </toc-element>
 </instance-profile>
