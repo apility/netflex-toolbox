@@ -3,5 +3,6 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/categories.dtd">
 <categories>
     <category id="nf" name="Netflex" order="1"/>
-    <category id="laravel" name="Laravel" order="2" />
+    <category id="commands" name="Commands" order="2" />
+    <category id="laravel" name="Laravel" order="3" />
 </categories>
