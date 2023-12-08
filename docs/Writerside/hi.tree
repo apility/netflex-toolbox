@@ -16,4 +16,8 @@
         <toc-element id="orders" topic="orders.md"/>
         <toc-element id="index" topic="indexing.md"/>
     </toc-element>
+
+    <toc-element id="structures" topic="structures.md">
+        <toc-element id="events" topic="events.md"/>
+    </toc-element>
 </instance-profile>

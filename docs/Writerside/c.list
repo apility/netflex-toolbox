@@ -4,5 +4,6 @@
 <categories>
     <category id="nf" name="Netflex" order="1"/>
     <category id="commands" name="Commands" order="2" />
-    <category id="laravel" name="Laravel" order="3" />
+    <category id="structures" name="Structures" order="3" />
+    <category id="laravel" name="Laravel" order="4" />
 </categories>

@@ -15,6 +15,7 @@ class StructureWebhookController
         $potentialKeys = collect(config('api.connections', []))
             ->pluck('privateKey');
         $potentialKeys->add(config('api.privateKey'));
+
         $validDigest = $potentialKeys
                 ->filter()
                 ->filter(fn($key) => hash('sha256', $messageId . $key) === $digest)
