@@ -81,10 +81,10 @@ class ForceIndexSignups extends Command
                 ->thenReturn();
 
             API::put('relations/signups/' . $data->id, $newData);
-            API::put("elasticsearch/signup/{$newData->id}");
+            $data = API::put("elasticsearch/signup/{$newData->id}");
 
             if ($data->message ?? null) {
-                return json_decode($data->message) ?? $data->message;
+                dump(json_decode($data->message));
             }
         });
         return 0;
