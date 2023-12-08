@@ -2,6 +2,7 @@
 
 namespace Netflex\Toolbox\Providers;
 
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +24,8 @@ class ToolboxProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
-        Route::get('/.well-known/netflex/structure-webhooks', [StructureWebhookController::class, 'process']);
+        Route::post('/.well-known/netflex/structure-webhooks', [StructureWebhookController::class, 'process'])
+            ->withoutMiddleware(VerifyCsrfToken::class);
         $this->bootRecaptcha();
         $this->bootOrderCommandConfigs();
     }
