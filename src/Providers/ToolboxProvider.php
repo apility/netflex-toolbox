@@ -3,8 +3,10 @@
 namespace Netflex\Toolbox\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use Netflex\Toolbox\Http\Controllers\StructureWebhookController;
 use Netflex\Toolbox\Middleware\AddTrailingSlash;
 use Netflex\Toolbox\Middleware\RemoveTrailingSlash;
 use Netflex\Toolbox\Validations\RecaptchaV2;
@@ -21,6 +23,7 @@ class ToolboxProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
+        Route::get('/.well-known/netflex/structure-webhooks', [StructureWebhookController::class, 'process']);
         $this->bootRecaptcha();
         $this->bootOrderCommandConfigs();
     }
