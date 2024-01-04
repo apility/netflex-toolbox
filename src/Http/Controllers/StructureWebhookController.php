@@ -2,7 +2,7 @@
 
 namespace Netflex\Toolbox\Http\Controllers;
 
-use Netflex\Toolbox\Events\Structures\StructureEvent;
+use Netflex\Toolbox\Events\Structures\StructureChangeEvent;
 
 class StructureWebhookController
 {
@@ -23,7 +23,7 @@ class StructureWebhookController
 
         abort_unless($validDigest, 403);
 
-        $event = StructureEvent::fromRequest();
+        $event = StructureChangeEvent::fromRequest();
         event($event);
         return "OK";
     }

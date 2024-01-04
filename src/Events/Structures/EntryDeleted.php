@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\App;
 use Netflex\Structure\Entry;
 use Netflex\Structure\Model;
 
-class EntryDeleted extends StructureEvent
+class EntryDeleted extends StructureChangeEvent
 {
 
     public array $entry_data;
