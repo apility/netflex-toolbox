@@ -2,6 +2,7 @@
 
 namespace Netflex\Toolbox\Events\Customers;
 
+use Netflex\Customers\Customer;
 use Netflex\Structure\Model;
 use Netflex\Toolbox\Events\WebhookEvent;
 
@@ -24,7 +25,10 @@ abstract class CustomerChangeEvent extends WebhookEvent
 
     }
 
-    public function getCustomer(): ?Model
+    /**
+     * @return Customer
+     */
+    public function getCustomer()
     {
         $id = $this->customer_id;
         return once(function () use ($id) {
