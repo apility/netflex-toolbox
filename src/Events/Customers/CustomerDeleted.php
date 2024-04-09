@@ -11,10 +11,11 @@ class CustomerDeleted extends CustomerChangeEvent
 {
     public array $customer_data;
 
-    public function __construct($type, array $customer_data)
+    public function __construct(array $data)
     {
+        parent::__construct($data);
+        $customer_data = data_get($this->data, 'customer_data');
         $this->customer_data = $customer_data;
-        parent::__construct($type, $customer_data['id'] ?? -1);
     }
 
     public function getCustomer(): ?Model {

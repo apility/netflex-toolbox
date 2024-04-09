@@ -22,10 +22,11 @@ abstract class StructureChangeEvent extends WebhookEvent implements \Stringable
         return $entry;
     }
 
-    public function __construct($type, $directory_id, $entry_id)
+    public function __construct(array $data)
     {
-        $this->type = $type;
-        $this->directory_id = $directory_id;
+        parent::__construct($data);
+        [$_, $this->directory_id, $this->type] = $this->getEventSegments(true);
+        $entry_id = data_get($this->data, 'entry_id');
         $this->entry_id = !is_null($entry_id) ? (int)$entry_id : null;
     }
 

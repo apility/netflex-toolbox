@@ -13,10 +13,15 @@ abstract class CustomerChangeEvent extends WebhookEvent
     public string $type;
     public ?int $customer_id;
 
-    public function __construct($type, $customer_id)
+    public function __construct(array $data)
     {
-        $this->type = $type;
+        parent::__construct($data);
+
+        [ $_, $this->type ] = $this->getEventSegments(false);
+
+        $customer_id = data_get($data, 'customer_id');
         $this->customer_id = !is_null($customer_id) ? (int)$customer_id : null;
+
     }
 
     public function getCustomer(): ?Model

@@ -11,10 +11,10 @@ class EntryDeleted extends StructureChangeEvent
 
     public array $entry_data;
 
-    public function __construct($type, $directory_id, array $entry_data)
+    public function __construct(array $data)
     {
-        $this->entry_data = $entry_data;
-        parent::__construct($type, $directory_id, $entry_data['id'] ?? -1);
+        parent::__construct($data);
+        $this->entry_data = data_get($data, 'entry_data');
     }
 
     public function getEntry(): ?Model {
