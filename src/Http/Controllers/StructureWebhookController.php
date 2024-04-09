@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Netflex\Toolbox\Events\Customers\CustomerAddedToGroup;
 use Netflex\Toolbox\Events\Customers\CustomerCreated;
 use Netflex\Toolbox\Events\Customers\CustomerDeleted;
+use Netflex\Toolbox\Events\Customers\CustomerRemovedFromGroup;
 use Netflex\Toolbox\Events\Customers\CustomerRemovedFromGroupEvent;
 use Netflex\Toolbox\Events\Customers\CustomerUpdated;
 use Netflex\Toolbox\Events\Structures\EntryCreated;
@@ -44,7 +45,7 @@ class StructureWebhookController
             'customer.updated' => CustomerUpdated::class,
             'customer.deleted' => CustomerDeleted::class,
             'customer.group-added' => CustomerAddedToGroup::class,
-            'customer.group-removed' => CustomerRemovedFromGroupEvent::class,
+            'customer.group-removed' => CustomerRemovedFromGroup::class,
 
         ];
 
