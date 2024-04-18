@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "netflex/framework": "^4"
+    "netflex/framework": "^4|^5.0"
   },
   "extra": {
     "laravel":{
