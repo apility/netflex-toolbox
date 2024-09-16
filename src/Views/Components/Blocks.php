@@ -1,6 +1,6 @@
 <?php
 
-namespace Netflex\Toolbox\Views\Components\Blocks;
+namespace Netflex\Toolbox\Views\Components;
 
 class Blocks extends \Netflex\Pages\Components\Blocks
 {
